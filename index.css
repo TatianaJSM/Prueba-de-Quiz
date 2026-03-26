@@ -112,11 +112,11 @@ body {
 }
 
 .titulo-linea1 {
-  background: purple;
+  background: rgb(35, 222, 228);
 }
 
 .titulo-linea2 {
-  background: cyan;
+  background: rgb(94, 22, 80);
 }
 
 /* Animación titulo */
@@ -125,6 +125,16 @@ body {
   transform: scale(1.1) rotate(-2deg);
 }
 
+
+.bloque-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.logo-img {
+  height: 30px;
+}
 /* MENSAJE */
 .zona-mensaje {
   display: flex;

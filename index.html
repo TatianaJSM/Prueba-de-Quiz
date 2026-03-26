@@ -12,7 +12,9 @@
 
   <div class="contenedor-afiches">
 
-    <!-- AFICHE 1 -->
+    <!-- =========================
+         AFICHE 1 (LETRERO)
+    ========================== -->
     <div class="poste-wrapper">
       <div class="letrero">
 
@@ -49,36 +51,60 @@
       <div class="poste"></div>
     </div>
 
-    <!-- AFICHE 2 -->
+    <!-- =========================
+         AFICHE 2 (CORREGIDO)
+    ========================== -->
     <div class="afiche">
 
+      <!-- TITULO -->
       <div class="zona-titulo">
         <div class="titulo-badge">
+          <!-- 🔥 signos corregidos -->
           <span class="titulo-linea1">¡LA SEDE</span>
           <span class="titulo-linea2">TE ACOMPAÑA!</span>
         </div>
       </div>
 
+      <!-- MENSAJE + QR -->
       <div class="zona-mensaje">
-        <p class="mensaje-principal">El respeto no se negocia</p>
-        <p class="mensaje-secundario">¡Pará ya de acosar!</p>
+
+        <!-- 🔥 Agrupé los textos para que no se rompa el layout -->
+        <div class="bloque-texto">
+          <p class="mensaje-principal">El respeto no se negocia</p>
+          <p class="mensaje-secundario">¡Pará ya de acosar!</p>
+        </div>
 
         <div class="qr-placeholder">
+          <!-- ⚠️ usa rutas relativas -->
           <img src="qrcode.png" alt="QR" class="qr-img"/>
           <small>Si necesitás ayuda,<br>escaneá este QR</small>
         </div>
+
       </div>
 
+      <!-- IMAGEN -->
       <div class="zona-personas">
+        <!-- ⚠️ ruta corregida -->
         <img src="Fotostop.png" alt="Personas" class="foto-personas" />
       </div>
 
+      <!-- LOGOS -->
       <div class="zona-logos">
-        <span class="logo-ucr">UCR</span>
+
+        <img src="ucr.png" alt="UCR logo" class="logo-img">
+
         <span class="separador">|</span>
-        <span class="logo-acoso">UCR<br><small>LIBRE DE ACOSO SEXUAL</small></span>
+
+        <span class="logo-acoso">
+          UCR<br><small>LIBRE DE ACOSO SEXUAL</small>
+        </span>
+
         <span class="separador">|</span>
-        <span class="logo-sg">SG <small>Sede de Guanacaste</small></span>
+
+        <span class="logo-sg">
+          SG <small>Sede de Guanacaste</small>
+        </span>
+
       </div>
 
     </div>
