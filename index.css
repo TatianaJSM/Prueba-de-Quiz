@@ -1,6 +1,3 @@
-/* ============================================================
-   RESET & BASE
-   ============================================================ */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -8,206 +5,83 @@
 }
 
 body {
-  font-family: Georgia, 'Times New Roman', serif;
-  background: #f4f4f4;
-  color: #1a1a1a;
-
-  /* GRID en el body para estructura general */
-  display: grid;
-  grid-template-rows: auto 1fr;
+  background: #e8e8e8;
   min-height: 100vh;
-}
 
-/* ============================================================
-   1. POSITION: STICKY + FLEX
-   ============================================================ */
-.header-sticky {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: #1a4fa0;
-  color: #ffffff;
-  padding: 18px 20px;
-
-  /* FLEX para centrar el h1 */
+  /* FLEX para centrar el afiche en pantalla */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.header-sticky h1 {
-  font-size: 1.8rem;
-  font-weight: bold;
-  text-align: center;
-  line-height: 1.3;
-}
-
-/* ============================================================
-   POSTER — GRID principal con areas
-   ============================================================ */
-.poster {
-  max-width: 860px;
-  width: 100%;
-  margin: 24px auto;
-  background: #ffffff;
-  padding: 24px 28px 40px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
-
-  /* GRID para zonas del poster */
-  display: grid;
-  grid-template-areas:
-    "intro"
-    "year"
-    "bottom";
-  grid-template-rows: auto 1fr auto;
-  gap: 24px;
-}
-
-/* ============================================================
-   INTRO — area "intro"
-   ============================================================ */
-.intro-text {
-  grid-area: intro;
-  border-left: 4px solid #1a4fa0;
-  padding-left: 12px;
-  font-size: 0.85rem;
-  color: #333;
-  line-height: 1.6;
-}
-
-/* ============================================================
-   2. POSITION: RELATIVE + GRID de 2 columnas
-   ============================================================ */
-.year-section {
-  grid-area: year;
-  position: relative;
-  padding-top: 55px;
-
-  /* GRID de 2 columnas iguales */
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-/* ============================================================
-   3. POSITION: ABSOLUTE — el "2020"
-   ============================================================ */
-.year-label {
-  position: absolute;
-  top: -5px;
-  left: 0;
-  font-size: 4.5rem;
-  font-weight: 900;
-  color: #1a4fa0;
-  letter-spacing: -2px;
-  line-height: 1;
-}
-
-/* ============================================================
-   COLUMNAS — FLEX interno para apilar contenido
-   ============================================================ */
-.col-left,
-.col-right {
+/* FLEX en columna: letrero arriba, poste abajo */
+.poste-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: center;
 }
 
-.col-left h2,
-.col-right h2 {
-  font-size: 0.72rem;
+/* GRID: una fila por cada destino */
+.letrero {
+  width: 320px;
+  background: #1a3a8c;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+
+  display: grid;
+  grid-template-rows: repeat(5, auto) 60px;
+}
+
+/* FLEX: texto izquierda, flecha derecha */
+.fila {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+.fila:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+.texto {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.flecha {
+  font-size: 1.3rem;
   font-weight: bold;
-  text-transform: uppercase;
-  color: #1a4fa0;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 4px;
+  color: #c8d4f0;
+  margin-left: 12px;
+  flex-shrink: 0;
 }
 
-.col-left p,
-.col-right p {
-  font-size: 0.78rem;
-  line-height: 1.65;
-  color: #222;
-  text-align: justify;
-}
-
-/* ============================================================
-   IMÁGENES — FLEX para centrar contenido interior
-   ============================================================ */
-.img-placeholder {
-  background: #d0dbe8;
-  border: 2px dashed #1a4fa0;
-  border-radius: 4px;
-  padding: 10px;
-  font-size: 0.75rem;
-  color: #444;
-  text-align: center;
-
+/* FLEX: centrar el logo UCR */
+.pie {
+  background: #b0b8c8;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.img-top    { height: 130px; }
-.img-bottom { height: 100px; }
-
-.img-caption {
-  font-size: 0.7rem !important;
-  color: #555 !important;
-  font-style: italic;
+.ucr-logo {
+  font-family: 'Times New Roman', serif;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #1a3a8c;
+  letter-spacing: 6px;
 }
 
-/* ============================================================
-   SECCIÓN INFERIOR — GRID de 3 columnas con areas
-   ============================================================ */
-.bottom-section {
-  grid-area: bottom;
-  border-top: 2px solid #1a4fa0;
-  padding-top: 16px;
-
-  display: grid;
-  grid-template-columns: 1.2fr 1fr 1.2fr;
-  grid-template-areas: "foto1 texto foto2";
-  gap: 14px;
-  align-items: start;
-}
-
-.bottom-section .bottom-img:first-child { grid-area: foto1; height: 140px; }
-.bottom-section .bottom-text            { grid-area: texto; }
-.bottom-section .bottom-img:last-child  { grid-area: foto2; height: 140px; }
-
-.bottom-section .bottom-text {
-  font-size: 0.72rem;
-  line-height: 1.6;
-  color: #333;
-  text-align: justify;
-
-  display: flex;
-  align-items: center;
-}
-
-/* ============================================================
-   4. POSITION: FIXED — botón flotante
-   ============================================================ */
-.btn-fixed {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 200;
-  background: #1a4fa0;
-  color: white;
-  border: none;
-  border-radius: 50px;
-  padding: 10px 20px;
-  font-size: 0.85rem;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.btn-fixed:hover {
-  background: #163d82;
+.poste {
+  width: 18px;
+  height: 120px;
+  background: linear-gradient(to right, #222, #555, #222);
+  border-radius: 0 0 4px 4px;
 }
