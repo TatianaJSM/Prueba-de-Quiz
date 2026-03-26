@@ -1,45 +1,36 @@
+/* RESET */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   background: #2a2a2a;
-  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   font-family: Arial, sans-serif;
 }
 
-.titulo-pagina {
-  text-align: center;
-  color: white;
-  margin-bottom: 40px;
-}
-
-/* GRID */
-.contenedor-afiches {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  justify-items: center;
-}
-
-/* =======================
-   AFICHE 1 (LETRERO)
-======================= */
+/* CONTENEDOR */
 .poste-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/* LETRERO */
 .letrero {
   width: 420px;
   background: #1a3a8c;
   border-radius: 10px 10px 0 0;
   overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
+/* FILAS */
 .fila {
   display: flex;
   justify-content: space-between;
@@ -49,7 +40,7 @@ body {
   transition: all 0.3s ease;
 }
 
-/* 🔥 ANIMACIÓN #3 */
+/* 🔥 ANIMACIÓN (#3) */
 .fila:hover {
   transform: scale(1.05);
   background: rgba(255,255,255,0.1);
@@ -61,8 +52,10 @@ body {
 
 .flecha {
   font-weight: bold;
+  font-size: 1.3rem;
 }
 
+/* PIE */
 .pie {
   background: #b0b8c8;
   text-align: center;
@@ -70,124 +63,15 @@ body {
 }
 
 .ucr-logo {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: bold;
   color: #1a3a8c;
+  letter-spacing: 5px;
 }
 
+/* POSTE */
 .poste {
   width: 20px;
   height: 120px;
-  background: #444;
-}
-
-/* =======================
-   AFICHE 2
-======================= */
-.afiche {
-  width: 420px;
-  background: #c8922a;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: transform 0.3s;
-}
-
-/* Hover general */
-.afiche:hover {
-  transform: scale(1.02);
-}
-
-/* TITULO */
-.zona-titulo {
-  padding: 20px;
-  text-align: center;
-}
-
-.titulo-linea1, .titulo-linea2 {
-  display: inline-block;
-  padding: 5px 12px;
-  color: white;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-.titulo-linea1 {
-  background: rgb(35, 222, 228);
-}
-
-.titulo-linea2 {
-  background: rgb(94, 22, 80);
-}
-
-/* Animación titulo */
-.afiche:hover .titulo-linea1,
-.afiche:hover .titulo-linea2 {
-  transform: scale(1.1) rotate(-2deg);
-}
-
-
-.bloque-texto {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.logo-img {
-  height: 30px;
-}
-/* MENSAJE */
-.zona-mensaje {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-}
-
-.mensaje-principal,
-.mensaje-secundario {
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-/* 🔥 Animación hover */
-.afiche:hover .mensaje-principal,
-.afiche:hover .mensaje-secundario {
-  transform: scale(1.2);
-  color: white;
-  text-shadow: 0 4px 10px rgba(0,0,0,0.5);
-}
-
-/* 🔥 Animación continua */
-@keyframes latido {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
-}
-
-.mensaje-principal {
-  animation: latido 2s infinite;
-}
-
-/* QR */
-.qr-img {
-  width: 70px;
-}
-
-/* FOTO */
-.foto-personas {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  transition: transform 0.3s;
-}
-
-.afiche:hover .foto-personas {
-  transform: scale(1.05);
-}
-
-/* LOGOS */
-.zona-logos {
-  background: rgba(0,0,0,0.2);
-  color: white;
-  text-align: center;
-  padding: 10px;
+  background: linear-gradient(to right, #222, #555, #222);
 }
