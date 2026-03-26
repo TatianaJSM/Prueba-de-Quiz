@@ -1,0 +1,170 @@
+/* RESET */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  background: #f4f4f4;
+  color: #1a1a1a;
+  padding-top: 70px;
+}
+
+/* ================================
+   1. STICKY — se pega al hacer scroll
+   ================================ */
+.header-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #1a4fa0;
+  color: #ffffff;
+  text-align: center;
+  padding: 18px 20px;
+}
+
+.header-sticky h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* ================================
+   POSTER
+   ================================ */
+.poster {
+  max-width: 860px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 24px 28px 40px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+
+/* INTRO */
+.intro-text {
+  border-left: 4px solid #1a4fa0;
+  padding-left: 12px;
+  margin-bottom: 24px;
+  font-size: 0.85rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ================================
+   2. RELATIVE — ancla al hijo absolute
+   ================================ */
+.year-section {
+  position: relative;
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  padding-top: 55px;
+}
+
+/* ================================
+   3. ABSOLUTE — se posiciona dentro
+   del padre relative (.year-section)
+   ================================ */
+.year-label {
+  position: absolute;
+  top: -5px;
+  left: 0;
+  font-size: 4.5rem;
+  font-weight: 900;
+  color: #1a4fa0;
+  letter-spacing: -2px;
+  line-height: 1;
+}
+
+/* COLUMNAS */
+.col-left,
+.col-right {
+  flex: 1;
+}
+
+.col-left h2,
+.col-right h2 {
+  font-size: 0.72rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #1a4fa0;
+  margin: 16px 0 6px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 4px;
+}
+
+.col-left p,
+.col-right p {
+  font-size: 0.78rem;
+  line-height: 1.65;
+  margin-bottom: 10px;
+  color: #222;
+  text-align: justify;
+}
+
+/* IMÁGENES PLACEHOLDER */
+.img-placeholder {
+  background: #d0dbe8;
+  border: 2px dashed #1a4fa0;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: #444;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 8px;
+}
+
+.img-top    { height: 130px; }
+.img-bottom { height: 100px; margin-top: 10px; }
+
+.img-caption {
+  font-size: 0.7rem !important;
+  color: #555 !important;
+  font-style: italic;
+}
+
+/* SECCIÓN INFERIOR */
+.bottom-section {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin-top: 20px;
+  border-top: 2px solid #1a4fa0;
+  padding-top: 16px;
+}
+
+.bottom-section .bottom-img { flex: 1.2; height: 140px; }
+.bottom-section .bottom-text {
+  flex: 1;
+  font-size: 0.72rem;
+  line-height: 1.6;
+  color: #333;
+  text-align: justify;
+}
+
+/* ================================
+   4. FIXED — siempre visible en pantalla
+   ================================ */
+.btn-fixed {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 200;
+  background: #1a4fa0;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.btn-fixed:hover {
+  background: #163d82;
+}
+
