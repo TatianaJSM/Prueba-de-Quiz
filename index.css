@@ -1,4 +1,6 @@
-/* RESET */
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -9,63 +11,87 @@ body {
   font-family: Georgia, 'Times New Roman', serif;
   background: #f4f4f4;
   color: #1a1a1a;
-  padding-top: 70px;
+
+  /* GRID en el body para estructura general */
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
 }
 
-/* ================================
-   1. STICKY — se pega al hacer scroll
-   ================================ */
+/* ============================================================
+   1. POSITION: STICKY + FLEX
+   ============================================================ */
 .header-sticky {
   position: sticky;
   top: 0;
   z-index: 100;
   background: #1a4fa0;
   color: #ffffff;
-  text-align: center;
   padding: 18px 20px;
+
+  /* FLEX para centrar el h1 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .header-sticky h1 {
   font-size: 1.8rem;
   font-weight: bold;
+  text-align: center;
+  line-height: 1.3;
 }
 
-/* ================================
-   POSTER
-   ================================ */
+/* ============================================================
+   POSTER — GRID principal con areas
+   ============================================================ */
 .poster {
   max-width: 860px;
-  margin: 0 auto;
+  width: 100%;
+  margin: 24px auto;
   background: #ffffff;
   padding: 24px 28px 40px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+
+  /* GRID para zonas del poster */
+  display: grid;
+  grid-template-areas:
+    "intro"
+    "year"
+    "bottom";
+  grid-template-rows: auto 1fr auto;
+  gap: 24px;
 }
 
-/* INTRO */
+/* ============================================================
+   INTRO — area "intro"
+   ============================================================ */
 .intro-text {
+  grid-area: intro;
   border-left: 4px solid #1a4fa0;
   padding-left: 12px;
-  margin-bottom: 24px;
   font-size: 0.85rem;
   color: #333;
   line-height: 1.6;
 }
 
-/* ================================
-   2. RELATIVE — ancla al hijo absolute
-   ================================ */
+/* ============================================================
+   2. POSITION: RELATIVE + GRID de 2 columnas
+   ============================================================ */
 .year-section {
+  grid-area: year;
   position: relative;
-  display: flex;
-  gap: 20px;
-  margin-bottom: 30px;
   padding-top: 55px;
+
+  /* GRID de 2 columnas iguales */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 
-/* ================================
-   3. ABSOLUTE — se posiciona dentro
-   del padre relative (.year-section)
-   ================================ */
+/* ============================================================
+   3. POSITION: ABSOLUTE — el "2020"
+   ============================================================ */
 .year-label {
   position: absolute;
   top: -5px;
@@ -77,10 +103,14 @@ body {
   line-height: 1;
 }
 
-/* COLUMNAS */
+/* ============================================================
+   COLUMNAS — FLEX interno para apilar contenido
+   ============================================================ */
 .col-left,
 .col-right {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .col-left h2,
@@ -89,7 +119,6 @@ body {
   font-weight: bold;
   text-transform: uppercase;
   color: #1a4fa0;
-  margin: 16px 0 6px;
   border-bottom: 1px solid #ccc;
   padding-bottom: 4px;
 }
@@ -98,28 +127,29 @@ body {
 .col-right p {
   font-size: 0.78rem;
   line-height: 1.65;
-  margin-bottom: 10px;
   color: #222;
   text-align: justify;
 }
 
-/* IMÁGENES PLACEHOLDER */
+/* ============================================================
+   IMÁGENES — FLEX para centrar contenido interior
+   ============================================================ */
 .img-placeholder {
   background: #d0dbe8;
   border: 2px dashed #1a4fa0;
   border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 10px;
   font-size: 0.75rem;
   color: #444;
   text-align: center;
-  padding: 10px;
-  margin-bottom: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .img-top    { height: 130px; }
-.img-bottom { height: 100px; margin-top: 10px; }
+.img-bottom { height: 100px; }
 
 .img-caption {
   font-size: 0.7rem !important;
@@ -127,28 +157,38 @@ body {
   font-style: italic;
 }
 
-/* SECCIÓN INFERIOR */
+/* ============================================================
+   SECCIÓN INFERIOR — GRID de 3 columnas con areas
+   ============================================================ */
 .bottom-section {
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-  margin-top: 20px;
+  grid-area: bottom;
   border-top: 2px solid #1a4fa0;
   padding-top: 16px;
+
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1.2fr;
+  grid-template-areas: "foto1 texto foto2";
+  gap: 14px;
+  align-items: start;
 }
 
-.bottom-section .bottom-img { flex: 1.2; height: 140px; }
+.bottom-section .bottom-img:first-child { grid-area: foto1; height: 140px; }
+.bottom-section .bottom-text            { grid-area: texto; }
+.bottom-section .bottom-img:last-child  { grid-area: foto2; height: 140px; }
+
 .bottom-section .bottom-text {
-  flex: 1;
   font-size: 0.72rem;
   line-height: 1.6;
   color: #333;
   text-align: justify;
+
+  display: flex;
+  align-items: center;
 }
 
-/* ================================
-   4. FIXED — siempre visible en pantalla
-   ================================ */
+/* ============================================================
+   4. POSITION: FIXED — botón flotante
+   ============================================================ */
 .btn-fixed {
   position: fixed;
   bottom: 24px;
@@ -162,9 +202,12 @@ body {
   font-size: 0.85rem;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .btn-fixed:hover {
   background: #163d82;
 }
-
