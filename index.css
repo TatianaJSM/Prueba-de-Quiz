@@ -11,80 +11,73 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* Título de la página */
 .titulo-pagina {
   text-align: center;
   color: #ffffff;
-  font-size: 1.3rem;
-  margin-bottom: 30px;
+  font-size: 1.5rem;
+  margin-bottom: 40px;
   letter-spacing: 1px;
 }
 
-/* ============================================================
-   CONTENEDOR PRINCIPAL — GRID de 2 columnas, uno por afiche
-   ============================================================ */
+/* GRID de 2 columnas para los dos afiches */
 .contenedor-afiches {
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
   align-items: start;
-  gap: 40px;
-  max-width: 780px;
+  gap: 60px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
 /* ============================================================
    AFICHE 1 — LETRERO
    ============================================================ */
-
-/* FLEX en columna: letrero arriba, poste abajo */
 .poste-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* GRID: una fila por destino */
 .letrero {
-  width: 300px;
+  width: 420px;
   background: #1a3a8c;
-  border-radius: 8px 8px 0 0;
+  border-radius: 10px 10px 0 0;
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(0,0,0,0.5);
 
   display: grid;
-  grid-template-rows: repeat(5, auto) 55px;
+  grid-template-rows: repeat(5, auto) 70px;
 }
 
-/* FLEX: texto izquierda, flecha derecha */
 .fila {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 20px;
+  padding: 22px 28px;
   border-bottom: 1px solid rgba(255,255,255,0.2);
   color: #ffffff;
+  transition: background 0.2s;
 }
 
 .fila:hover {
-  background: rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.1);
 }
 
 .texto {
-  font-size: 0.95rem;
+  font-size: 1.15rem;
   font-weight: 500;
   line-height: 1.4;
 }
 
 .flecha {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: bold;
   color: #c8d4f0;
-  margin-left: 12px;
+  margin-left: 16px;
   flex-shrink: 0;
 }
 
-/* FLEX: centrar logo UCR */
 .pie {
   background: #b0b8c8;
   display: flex;
@@ -94,15 +87,15 @@ body {
 
 .ucr-logo {
   font-family: 'Times New Roman', serif;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
   color: #1a3a8c;
-  letter-spacing: 6px;
+  letter-spacing: 8px;
 }
 
 .poste {
-  width: 16px;
-  height: 100px;
+  width: 20px;
+  height: 130px;
   background: linear-gradient(to right, #222, #555, #222);
   border-radius: 0 0 4px 4px;
 }
@@ -110,12 +103,10 @@ body {
 /* ============================================================
    AFICHE 2 — LA SEDE TE ACOMPAÑA
    ============================================================ */
-
-/* GRID principal con 4 zonas */
 .afiche {
-  width: 300px;
+  width: 420px;
   background: #c8922a;
-  border-radius: 6px;
+  border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 12px 40px rgba(0,0,0,0.5);
 
@@ -126,33 +117,68 @@ body {
     "mensaje"
     "personas"
     "logos";
-  min-height: 500px;
+  min-height: 650px;
 }
 
-/* FLEX: centrar el badge */
+/* ANIMACIONES al hacer hover en el afiche */
+.mensaje-principal,
+.mensaje-secundario {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #1a1a1a;
+  transition: transform 0.3s ease, color 0.3s ease;
+  display: inline-block;
+}
+
+.afiche:hover .mensaje-principal,
+.afiche:hover .mensaje-secundario {
+  transform: scale(1.2);
+  color: #ffffff;
+}
+
+.titulo-linea1,
+.titulo-linea2 {
+  transition: transform 0.3s ease, letter-spacing 0.3s ease;
+}
+
+.afiche:hover .titulo-linea1,
+.afiche:hover .titulo-linea2 {
+  transform: scale(1.1) rotate(-2deg);
+  letter-spacing: 2px;
+}
+
+/* Foto hover */
+.foto-personas {
+  transition: transform 0.3s ease;
+}
+
+.afiche:hover .foto-personas {
+  transform: scale(1.05);
+}
+
+/* ZONAS */
 .zona-titulo {
   grid-area: titulo;
-  padding: 20px 16px 8px;
+  padding: 28px 20px 10px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* FLEX en columna: dos líneas del título */
 .titulo-badge {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 4px;
+  gap: 6px;
 }
 
 .titulo-linea1 {
   background: #7b3fa0;
   color: white;
   font-family: Arial Black, sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   font-weight: 900;
-  padding: 4px 10px;
+  padding: 6px 14px;
   border-radius: 6px;
   transform: rotate(-2deg);
   display: inline-block;
@@ -162,19 +188,18 @@ body {
   background: #2ab8d4;
   color: white;
   font-family: Arial Black, sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   font-weight: 900;
-  padding: 4px 10px;
+  padding: 6px 14px;
   border-radius: 6px;
   transform: rotate(-1deg);
   display: inline-block;
-  margin-left: 10px;
+  margin-left: 14px;
 }
 
-/* GRID: texto izquierda, QR derecha */
 .zona-mensaje {
   grid-area: mensaje;
-  padding: 14px 20px;
+  padding: 20px 28px;
 
   display: grid;
   grid-template-columns: 1fr auto;
@@ -182,97 +207,75 @@ body {
   grid-template-areas:
     "principal qr"
     "secundario qr";
-  gap: 4px 12px;
+  gap: 6px 16px;
   align-items: center;
 }
 
-.mensaje-principal { grid-area: principal; font-size: 1rem; font-weight: bold; color: #1a1a1a; }
-.mensaje-secundario { grid-area: secundario; font-size: 1rem; font-weight: bold; color: #1a1a1a; }
+.mensaje-principal { grid-area: principal; }
+.mensaje-secundario { grid-area: secundario; }
 
-/* FLEX en columna: ícono QR y texto */
 .qr-placeholder {
   grid-area: qr;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  font-size: 2rem;
-  color: #1a1a1a;
+  gap: 6px;
   text-align: center;
 }
 
+.qr-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 4px;
+}
+
 .qr-placeholder small {
-  font-size: 0.5rem;
+  font-size: 0.6rem;
   color: #333;
   line-height: 1.3;
 }
 
-/* FLEX: personas lado a lado pegadas abajo */
+/* FOTO en lugar del div de personas */
 .zona-personas {
   grid-area: personas;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  gap: 8px;
-  padding: 0 8px;
+  overflow: hidden;
 }
 
-/* FLEX en columna: mano arriba, cuerpo abajo */
-.persona {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
+.foto-personas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
 }
 
-.mano {
-  font-size: 2rem;
-  transform: scaleX(-1);
-}
-
-.persona-der .mano {
-  transform: scaleX(1);
-}
-
-/* FLEX: centrar texto UCR en el cuerpo */
-.cuerpo {
-  width: 100px;
-  height: 120px;
-  background: #5bb8e8;
-  border-radius: 10px 10px 0 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Arial Black, sans-serif;
-  font-size: 0.9rem;
-  font-weight: 900;
-  color: #1a3a8c;
-  letter-spacing: 2px;
-}
-
-/* FLEX: logos distribuidos horizontalmente */
 .zona-logos {
   grid-area: logos;
   background: rgba(0,0,0,0.15);
-  padding: 10px 16px;
+  padding: 14px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
 }
 
 .logo-ucr {
   font-family: 'Times New Roman', serif;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: bold;
   color: #ffffff;
   letter-spacing: 3px;
 }
 
-.separador { color: rgba(255,255,255,0.4); font-size: 1.1rem; }
+.separador {
+  color: rgba(255,255,255,0.4);
+  font-size: 1.2rem;
+}
 
 .logo-acoso, .logo-sg {
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   font-weight: bold;
   color: #ffffff;
   line-height: 1.3;
@@ -281,6 +284,6 @@ body {
 
 .logo-acoso small, .logo-sg small {
   font-weight: normal;
-  font-size: 0.5rem;
+  font-size: 0.55rem;
   display: block;
 }
