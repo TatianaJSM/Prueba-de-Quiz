@@ -29,6 +29,22 @@ body {
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
+/* BOTÓN */
+.boton {
+  margin-top: 20px;
+  background: #c8922a;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.boton:hover {
+  background: #e0a93a;
+  transform: scale(1.1);
+}
 
 /* FILAS */
 .fila {
